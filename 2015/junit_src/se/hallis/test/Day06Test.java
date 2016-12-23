@@ -10,7 +10,7 @@ import se.hallis.aoc.Day06_1;
 import se.hallis.aoc.Day06_2;
 
 /**
- * http://adventofcode.com/2015/day/4
+ * http://adventofcode.com/2015/day/6
  * 
  * @author mattias
  *

@@ -19,25 +19,70 @@ public class Day08Test extends TestBas
 		testklass = new Day08();
 	}
 
+	// "" -> "
 	@Test
-	public void test_do_stuff()
+	public void test_doublequotas()
 	{
-		int[] mem = testklass.parse("");
-		assertEquals(0, mem[0]);
+		List<String> data = ReadInput("Day08_exempel.txt");
+		int[] mem = testklass.parse(data.get(0));
+		assertEquals(2, mem[0]);
+		assertEquals(0, mem[1]);
+	}
+	// "abc" -> "abc"
+	@Test
+	public void test_abc()
+	{
+		List<String> data = ReadInput("Day08_exempel.txt");
+		int[] mem = testklass.parse(data.get(1));
+		assertEquals(5, mem[0]);
+		assertEquals(3, mem[1]);
+	}
+	// "aaa\"aaa" -> "aaa_aaa"
+	@Test
+	public void test_aaa_aaa()
+	{
+		List<String> data = ReadInput("Day08_exempel.txt");
+		int[] mem = testklass.parse(data.get(2));
+		assertEquals(10, mem[0]);
+		assertEquals( 7, mem[1]);
+	}
+	// "\x27" --> "_"
+	@Test
+	public void test_hex27()
+	{
+		List<String> data = ReadInput("Day08_exempel.txt");
+		int[] mem = testklass.parse(data.get(3));
+		assertEquals(6, mem[0]);
+		assertEquals(1, mem[1]);
 	}
 
-/*
 	@Test
 	public void test_fas1()
 	{
 		int svar = 0;
-		List<String> data = ReadInput("Day07.txt");
-		testklass.m_rawdata.addAll(data);
-		testklass.dealWithIt();
+		List<String> data = ReadInput("Day08.txt");
 
-		svar = testklass.getValueFromRegister("a");
-		System.out.println("Svar 2015, dag 07_1: " + svar);
-		assertEquals(16076, svar);
+		for (int i=0; i < data.size(); i++) {
+			int[] mem = testklass.parse(data.get(i));
+			svar += (mem[0]-mem[1]);
+		}
+		
+		System.out.println("Svar 2015, dag 08_1: " + svar);
+		assertEquals(1371, svar);
 	}
-*/
+	@Test
+	public void test_fas2()
+	{
+		int svar = 0;
+		List<String> data = ReadInput("Day08.txt");
+
+		for (int i=0; i < data.size(); i++) {
+			int[] mem = testklass.parse(data.get(i));
+			svar += (mem[1]-mem[0]);
+		}
+		
+		System.out.println("Svar 2015, dag 08_2: " + svar);
+		assertEquals(2117, svar);
+	}
+
 }

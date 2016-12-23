@@ -9,7 +9,7 @@ import org.junit.Test;
 import se.hallis.aoc.Day07;
 
 /**
- * http://adventofcode.com/2015/day/4
+ * http://adventofcode.com/2015/day/7
  * 
  * @author mattias
  *
